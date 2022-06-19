@@ -38,31 +38,51 @@ pair<int,int> subarraySort(vector<int> arr) {
     return {-1,-1};
   }
 
-  unordered_map<int, int> leftMap;
-  for(int i=0; i<l; i++){
-    leftMap[arr[i]] = i;
-  }
+  // unordered_map<int, int> leftMap;
+  // for(int i=0; i<l; i++){
+  //   leftMap[arr[i]] = i;
+  // }
 
-  unordered_map<int, int> rightMap;
-  for(int i=n-1; i>r; i--){
-    rightMap[arr[i]] = i;
+  // unordered_map<int, int> rightMap;
+  // for(int i=n-1; i>r; i--){
+  //   rightMap[arr[i]] = i;
+  // }
+  
+  // for(auto e : leftMap){
+  //   if(arr[r] < e.first){
+  //     if(l > e.second)
+  //       l=e.second;
+  //   }
+  // }
+  int smallestOutOfBound, largestOutOfBound;
+  if(arr[l] < arr [r]){
+    smallestOutOfBound = arr[l];
+    largestOutOfBound = arr[r];
+  } else {
+    smallestOutOfBound = arr[r];
+    largestOutOfBound = arr[l];
   }
   
-  for(auto e : leftMap){
-    if(arr[r] < e.first){
-      if(l > e.second)
-        l=e.second;
-    }
+  int left=0;
+  while(smallestOutOfBound >= arr[left]){
+    left++;
   }
-
-  for(auto e : rightMap){
-    if(arr[l] > e.first){
-      if(r < e.second)
-        r = e.second;
-    }
-  }
+  //left is now left most out of bound
   
-  return {l,r};
+  int right = n-1;
+  while(largestOutOfBound <= arr[right]){
+    right--;
+  }
+  //right is now right most out of bound
+
+  // for(auto e : rightMap){
+  //   if(arr[l] > e.first){
+  //     if(r < e.second)
+  //       r = e.second;
+  //   }
+  // }
+  
+  return {left,right};
 }
 
 
