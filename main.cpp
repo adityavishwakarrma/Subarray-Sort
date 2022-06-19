@@ -75,6 +75,7 @@ pair<int,int> subarraySort(vector<int> arr) {
   }
   //right is now right most out of bound
 
+  
   // for(auto e : rightMap){
   //   if(arr[l] > e.first){
   //     if(r < e.second)
