@@ -9,9 +9,23 @@ bool outOfOrder(vector<int> arr,int i){
   } 
   if(i>0 && arr[i] < arr[i-1]){
     return 1;
-  }
+  }  
 
   return 0;
+
+  // int n = arr.size();
+  // int x = arr[i];
+  
+  // if(i==0 && n>=2)
+  //   return x > arr[1];
+  
+  // if(i==0 && n==1)
+  //   return 0;
+  
+  // if(i==n-1)
+  //   return x < arr[n-2];
+  
+  // return x > arr[i+1] or x < arr[i-1];
 }
 
 pair<int,int> subarraySort(vector<int> arr) {
